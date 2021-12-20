@@ -20,13 +20,15 @@ remotes::install_github("daranzolin/hacksawstats")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The `%@%` operator is identical to `%>%` and is used only to alert the
+user to different behavior within the `*_split` functions (the piped
+object is recycled).
 
 ``` r
 library(hacksawstats)
 library(infer)
 
-gss %>% 
+gss %@% 
   t_test_split(
     hours ~ college,
     hours ~ sex
@@ -45,7 +47,7 @@ gss %>%
 #> 1     6.65      44.5      37.9      5.13 4.25e-7      490.     4.10      9.19
 #> # … with 2 more variables: method <chr>, alternative <chr>
 
-mtcars %>% 
+mtcars %@% 
   lm_split(
     model1 = mpg ~ wt,
     model2 = mpg ~ wt + hp
